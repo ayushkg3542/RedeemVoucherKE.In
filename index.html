@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let Journey | Your Adventure Starts Here</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner" style="justify-content: center">
+        <a href="#" class="logo-center">
+          <img
+            src="assets/KE-White.png"
+            alt="Karma Experience"
+            style="width: 200px; height: auto"
+          />
+        </a>
+      </div>
+      </div>
+      <!-- Wishlist Container (Initially Hidden) -->
+      <div class="wishlist-container" id="wishlist-container">
+        <div class="wishlist-thumb-wrapper">
+             <img src="" alt="Wishlist" id="wishlist-thumb">
+        </div>
+        <span class="wishlist-count">0</span>
+      </div>
+    </header>
+
+    <!-- Flash Overlay -->
+    <div class="flash-overlay"></div>
+
+    <main>
+      <div class="main-body-padding">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-slider">
+          <div
+            class="slide active"
+            style="background-image: url(&quot;assets/hero-bg.png&quot;)"
+          ></div>
+          <div
+            class="slide"
+            style="
+              background-image: url(&quot;assets/kinkakuji-temple.jpg&quot;);
+            "
+          ></div>
+          <div
+            class="slide"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&q=80&w=2000&quot;);
+            "
+          ></div>
+          <div
+            class="slide"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=2000&quot;);
+            "
+          ></div>
+          <div
+            class="slide"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=2000&quot;);
+            "
+          ></div>
+          <div
+            class="slide"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1477601263568-180e2c6d046e?auto=format&fit=crop&q=80&w=2000&quot;);
+            "
+          ></div>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <!-- Path Animation SVG -->
+        <div class="flight-path-container">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 652 370"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <path
+              id="planePath"
+              class="flight-path"
+              d="M0.5 36.5V36.5C14.7714 66.7217 50.2754 80.3908 81.1289 67.5422L208.5 14.5L242.9 4.97854C257.114 1.04429 272.036 0.390626 286.54 3.06689V3.06689C324.244 10.0241 354.354 38.4611 363.454 75.7058L368.222 95.2223C381.965 151.475 431.659 191.569 489.545 193.11L587.857 195.726C624.429 196.7 653.055 227.546 651.299 264.09V264.09C650.185 287.258 636.857 308.093 616.29 318.816L609.359 322.431C590.286 332.376 567.978 334.1 547.603 327.203L500.28 311.183C462.751 298.479 424.993 329.764 430.5 369V369"
+              fill="none"
+              stroke="#F9A80B"
+              stroke-dasharray="10 10"
+              stroke-width="1.5"
+              opacity="0.9"
+            />
+            <g id="planeMarker">
+              <!-- Paths from 6703c1e34c26280832f2d47f_Group.svg -->
+              <g transform="scale(0.8) translate(-50, -50)">
+                <path
+                  d="M15.3265 61.7144C16.2571 61.3838 17.136 61.0711 18.0503 60.858C18.4594 60.7631 19.0442 60.6593 19.3967 60.8684C19.8865 61.1625 19.8443 62.1052 19.5177 62.8469C18.7039 64.7149 16.9079 66.264 13.8688 67.71C11.1938 68.9782 8.36618 69.8937 5.45433 70.4814C6.93181 67.8029 8.84869 65.2385 11.1958 62.7979C11.6634 62.747 12.1331 62.6916 12.5982 62.5781C13.5375 62.3496 14.4466 62.0262 15.3265 61.7144Z"
+                  fill="#F9A80B"
+                />
+                <path
+                  d="M75.7443 58.4524C75.4827 59.0221 74.6025 59.5749 73.5249 59.8421C70.0924 60.6919 66.5304 61.0827 63.1789 61.4089C57.6597 61.9454 52.0422 62.364 46.4803 62.6548C45.0063 62.7303 43.3337 62.817 41.8414 62.3934C41.1091 62.1809 40.6128 61.8772 40.3727 61.4894C39.911 60.7415 40.3671 59.8062 41.0771 59.0109C41.4968 58.5409 42.0097 58.1164 42.4725 57.8093C43.0572 57.4226 43.615 57.0344 44.1584 56.656C46.7634 54.845 49.0148 53.2801 52.3858 53.0694C54.3928 52.9418 56.3278 53.2139 58.3743 53.5025C59.3021 53.6332 60.2329 53.7629 61.1695 53.8563L63.598 54.0824C65.7677 54.2774 67.8856 54.4902 69.9694 54.9102L70.2404 54.9636C71.8937 55.2934 74.9717 55.9071 75.6745 57.3606C75.8731 57.7717 75.8963 58.128 75.7443 58.4524Z"
+                  fill="#F9A80B"
+                />
+                <path
+                  d="M65.6099 25.4699C64.8895 26.803 63.9703 27.9028 62.9308 28.8812C62.3895 28.7319 61.8422 28.5854 61.2577 28.4437C58.9475 27.8781 56.5575 27.2942 55.0622 25.8836C54.9686 25.7962 54.7559 25.5762 54.7847 25.4171C54.816 25.2301 55.1294 24.9065 55.7602 24.6288C56.4135 24.3448 57.1653 24.2165 57.8906 24.0948C60.6981 23.62 63.59 23.2981 66.6489 23.0776C66.3565 23.8979 66.03 24.7 65.6099 25.4699Z"
+                  fill="#F9A80B"
+                />
+                <path
+                  d="M38.7268 40.8974C38.4275 41.8685 38.1443 42.8203 37.8747 43.7644C33.42 46.0218 28.9103 48.3655 24.5368 50.9468C29.3086 42.5321 32.772 36.7967 37.0839 31.8995C37.0839 31.8995 37.0933 31.889 37.0989 31.8827C37.9795 30.8965 39.7459 30.162 40.4898 30.4755C40.7961 30.6056 40.927 31.0016 40.8763 31.654C40.6473 34.6663 39.6721 37.8345 38.7268 40.8974Z"
+                  fill="#F9A80B"
+                />
+                <path
+                  d="M80.1635 32.0839C79.9435 32.1402 79.6775 32.2269 79.3921 32.3228C78.8915 32.4906 78.2051 32.7187 77.8765 32.6855C77.6447 32.4785 77.4666 32.0253 77.6228 30.6488C77.8619 28.5543 78.1806 26.5649 79.3684 25.2345C79.464 25.1275 79.5648 25.0252 79.6727 24.9255C79.8755 24.7403 80.1252 24.6005 80.3665 24.4522C80.383 24.4493 80.3967 24.4632 80.4133 24.4592C80.5587 24.4231 80.6828 24.3453 80.7765 24.2404C80.7903 24.2249 80.7929 24.203 80.8053 24.1865C81.9568 23.6392 83.4855 23.4247 85.5172 23.5368C86.988 23.6169 88.4659 23.8201 90.0331 24.1598C90.2589 24.2068 90.5123 24.2482 90.7778 24.2929C91.6143 24.4289 92.6568 24.598 93.0027 25.1293C93.1281 25.3204 93.104 25.4234 93.0946 25.4678C92.9852 25.9471 92.0011 26.5467 91.3538 26.938L90.8631 27.2427C89.3059 28.2433 87.5765 29.1391 85.5788 29.9763C85.139 30.1606 84.6996 30.3528 84.2613 30.546C82.9346 31.1301 81.5641 31.7317 80.1635 32.0839Z"
+                  fill="#F9A80B"
+                />
+                <path
+                  d="M25.7252 74.7024C22.326 76.7546 11.5958 80.9839 6.41961 78.7984C4.99079 78.1939 4.12358 77.1632 3.77069 75.6451C3.52257 74.6052 3.88266 73.505 4.50131 72.168C4.50754 72.155 4.51669 72.1429 4.52293 72.1298C7.98243 71.547 11.3357 70.5059 14.4912 69.0087C16.017 68.2818 17.9824 67.2083 19.4344 65.5821C19.9983 64.9505 20.4847 64.2346 20.8403 63.4245C21.4042 62.1405 21.4264 60.4029 20.1355 59.6312C19.3408 59.1592 18.4307 59.2894 17.7259 59.4558C16.7338 59.6863 15.7758 60.0264 14.8482 60.3559C14.2222 60.5778 13.6235 60.7568 13.0188 60.9375C14.3836 59.6735 15.849 58.4409 17.4518 57.2539C23.8719 52.5399 31.1118 48.8117 38.1763 45.2299C38.1876 45.2336 38.1909 45.2473 38.2026 45.2503C38.4739 45.3266 38.7535 45.2331 38.9296 45.0359C38.9948 44.9628 39.0416 44.871 39.0743 44.771C39.1096 44.7532 39.1452 44.7347 39.1805 44.7169C45.29 41.6227 51.6068 38.4232 57.4277 34.6112L58.5001 33.9169C60.239 32.7957 61.9213 31.7011 63.4139 30.396C63.5467 30.3592 63.6676 30.2878 63.7597 30.1845C63.8142 30.1236 63.8483 30.0475 63.8804 29.9696C65.0328 28.8931 66.06 27.6716 66.8731 26.1612C67.9588 24.1702 68.5413 22.0015 69.104 19.9056C69.5876 18.1011 70.047 16.3956 70.7994 14.7821C71.3933 13.4834 72.0641 12.5928 72.8455 12.0724C73.6329 11.5347 74.2976 11.3815 74.881 11.6045C75.6538 11.8985 76.768 13.0178 77.6814 16.6768L77.7935 17.1088C78.3315 19.1787 78.8641 21.2527 79.3877 23.3387C79.1514 23.497 78.9195 23.6659 78.7028 23.864C76.8643 25.5599 76.4823 27.9453 76.1919 30.488C76.0769 31.5016 76.0248 32.7637 76.6441 33.5315C76.6563 33.5469 76.6748 33.5531 76.6873 33.5678C70.4012 40.6293 64.4794 46.5231 58.1125 52.0207C56.2255 51.7583 54.2877 51.5074 52.2947 51.633C48.5217 51.8694 46.003 53.6218 43.3357 55.4752C42.8 55.8491 42.2507 56.2299 41.6766 56.611C39.5553 58.0091 37.9478 60.3036 39.1476 62.2459C39.5809 62.9496 40.3532 63.4657 41.4438 63.7795C41.879 63.9034 42.319 63.9896 42.7591 64.0486C42.3787 64.3277 41.9907 64.62 41.6046 64.8961C38.2167 67.377 34.6528 69.4594 30.5248 71.8716C28.9955 72.765 27.3996 73.6971 25.7252 74.7024Z"
+                  fill="#F9A80B"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="hero-content">
+          <p class="hero-subtext reveal">Get incredible pleasure with us</p>
+          <h1 class="hero-headline">
+            Where will your<br />
+            <span class="italic">Voucher take you?</span>
+          </h1>
+        </div>
+
+        <!-- Bottom Shape -->
+        <div class="bottom-shape">
+          <img
+            src="assets/cloud.png"
+            alt="Cloud Background"
+            style="width: 100%"
+          />
+        </div>
+
+        <!-- OLD DESIGN - COMMENTED OUT
+        <div class="destinations-container">
+          <div class="destinations-wrapper reveal">
+            <div class="destination-category">
+              <h3 class="category-title">International Escapes</h3>
+              <div class="category-grid">
+                <div class="peek-card-wrapper" data-value="bali">
+                  <div class="peek-card">
+                    <img src="assets/bali.png" alt="Bali" />
+                    <span class="dest-name">Bali</span>
+                  </div>
+                </div>
+                <div class="peek-card-wrapper" data-value="cambodia">
+                  <div class="peek-card">
+                    <img src="assets/cambodia.png" alt="Cambodia" />
+                    <span class="dest-name">Cambodia</span>
+                  </div>
+                </div>
+                <div class="peek-card-wrapper" data-value="indonesia">
+                  <div class="peek-card">
+                    <img src="assets/indonesia.png" alt="Indonesia" />
+                    <span class="dest-name">Indonesia</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="vertical-separator"></div>
+
+            <div class="destination-category">
+              <h3 class="category-title">Treasured India</h3>
+              <div class="category-grid">
+                <div class="peek-card-wrapper" data-value="goa">
+                  <div class="peek-card">
+                    <img src="assets/goa.png" alt="Goa" />
+                    <span class="dest-name">Goa</span>
+                  </div>
+                </div>
+                <div class="peek-card-wrapper" data-value="manali">
+                  <div class="peek-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=800"
+                      alt="Manali"
+                    />
+                    <span class="dest-name">Manali</span>
+                  </div>
+                </div>
+                <div class="peek-card-wrapper" data-value="bangalore">
+                  <div class="peek-card">
+                    <img src="assets/bangalore.png" alt="Bangalore" />
+                    <span class="dest-name">Bangalore</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+
+        <!-- NEW PREMIUM SELECTOR -->
+        <!-- NEW PREMIUM SELECTOR - COMMENTED OUT
+        <div class="premium-selector-container reveal">
+          <div class="selector-header">
+            <h2 class="selector-title">Select Your Destination</h2>
+            <div class="selector-tabs">
+              <button class="tab-btn active" data-tab="international">
+                International
+              </button>
+              <button class="tab-btn" data-tab="india">India</button>
+            </div>
+          </div>
+
+          <div class="selector-content">
+            <div class="dest-grid active" id="international">
+              <div class="dest-card" data-value="bali">
+                <div class="card-bg">
+                  <img src="assets/bali.png" alt="Bali" />
+                </div>
+                <div class="card-content">
+                  <h3>Bali</h3>
+                </div>
+              </div>
+              <div class="dest-card" data-value="cambodia">
+                <div class="card-bg">
+                  <img src="assets/cambodia.png" alt="Cambodia" />
+                </div>
+                <div class="card-content">
+                  <h3>Cambodia</h3>
+                </div>
+              </div>
+              <div class="dest-card" data-value="indonesia">
+                <div class="card-bg">
+                  <img src="assets/indonesia.png" alt="Indonesia" />
+                </div>
+                <div class="card-content">
+                  <h3>Indonesia</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="dest-grid" id="india">
+              <div class="dest-card" data-value="goa">
+                <div class="card-bg">
+                  <img src="assets/goa.png" alt="Goa" />
+                </div>
+                <div class="card-content">
+                  <h3>Goa</h3>
+                </div>
+              </div>
+              <div class="dest-card" data-value="manali">
+                <div class="card-bg">
+                  <img
+                    src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=800"
+                    alt="Manali"
+                  />
+                </div>
+                <div class="card-content">
+                  <h3>Manali</h3>
+                </div>
+              </div>
+              <div class="dest-card" data-value="bangalore">
+                <div class="card-bg">
+                  <img src="assets/bangalore.png" alt="Bangalore" />
+                </div>
+                <div class="card-content">
+                  <h3>Bangalore</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+
+    </section>
+
+    <!-- Mandatory Destination Selection Popup -->
+    <div id="destination-modal" class="destination-modal">
+      <div class="modal-overlay"></div>
+      <div class="search-container">
+        <div class="search-panel vertical-layout">
+          <h2 class="selector-title">From Where You Get the Voucher?</h2>
+          
+          <div class="search-item" id="international-select">
+            <span class="search-label">International Escapes</span>
+            <div class="custom-select-wrapper">
+              <div class="custom-select-trigger">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="selected-text">Select Destination</span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+              </div>
+              <div class="custom-options">
+                <div class="custom-option" data-value="bali">Bali</div>
+                <div class="custom-option" data-value="cambodia">Cambodia</div>
+                <div class="custom-option" data-value="indonesia">Indonesia</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="search-item" id="india-select">
+            <span class="search-label">Treasured India</span>
+            <div class="custom-select-wrapper">
+              <div class="custom-select-trigger">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="selected-text">Select Destination</span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+              </div>
+              <div class="custom-options">
+                <div class="custom-option" data-value="goa">Goa</div>
+                <div class="custom-option" data-value="manali">Manali</div>
+                <div class="custom-option" data-value="bangalore">Bangalore</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="search-btn-wrapper">
+            <button class="search-btn">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- OLD SECTIONS - COMMENTED OUT
+      <section class="all-destinations-section">
+        ... (Timeline and Grid) ...
+      </section>
+      -->
+
+      <!-- Redesigned Magazine-Style Booking Flow Container -->
+      <section id="booking-flow-section" class="booking-flow-section reveal">
+        <div class="booking-magazine-container">
+          
+          <!-- Top Horizontal Progress Tracker -->
+          <div class="booking-magazine-header">
+            <div class="magazine-progress-steps">
+              <div class="mag-step active" data-step="1">
+                <span class="mag-step-num">01</span>
+                <span class="mag-step-lbl">DESTINATION</span>
+              </div>
+              <div class="mag-step-line"></div>
+              <div class="mag-step" data-step="2">
+                <span class="mag-step-num">02</span>
+                <span class="mag-step-lbl">RESORT</span>
+              </div>
+              <div class="mag-step-line"></div>
+              <div class="mag-step" data-step="3">
+                <span class="mag-step-num">03</span>
+                <span class="mag-step-lbl">DETAILS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Centered Immersive Content Area -->
+          <div class="booking-immersive-content" id="booking-content">
+            <!-- Redesigned Step Content will be injected here -->
+          </div>
+        </div>
+      </section>
+
+      </div>
+      <!-- OLD SECTIONS - COMMENTED OUT
+      <section id="resorts-section" ...>...</section>
+      <section id="resort-gallery-section" ...>...</section>
+      -->
+
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

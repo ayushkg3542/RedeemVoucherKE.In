@@ -1,0 +1,2055 @@
+@font-face {
+  font-family: "Athenor";
+  src: url("assets/fonts/AthenorMediantsDemoRegular-7OLA4.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Elegant";
+  src: url("assets/fonts/Elegant-KVjAe.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Monday";
+  src: url("assets/fonts/Monday-q2dMq.otf") format("opentype");
+}
+
+:root {
+  --primary-orange: #ff7d00;
+  --primary-orange-dark: #cc6400;
+  --navy-dark: #1a2542;
+  --text-white: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --transition-main: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  color: var(--text-white);
+  background: var(--text-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+main {
+  padding: 0;
+}
+
+.main-body-padding {
+  padding: 10px;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 2.5rem 0;
+}
+
+.header-inner {
+  max-width: 87.5rem;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* overflow: hidden;  REMOVED to allow dropdowns to show */
+  background: var(--text-white);
+  padding-bottom: 8rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  z-index: 20; /* Ensure it stacks correctly */
+}
+
+/* ... existing styles ... */
+
+.premium-selector-container {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  width: 100%;
+  max-width: 80rem;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden; /* Moved here to contain zooming images */
+  border-radius: 15px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.1);
+  animation: slideFade 42s linear infinite;
+}
+
+.slide:nth-child(1) {
+  animation-delay: 0s;
+}
+.slide:nth-child(2) {
+  animation-delay: 7s;
+}
+.slide:nth-child(3) {
+  animation-delay: 14s;
+}
+.slide:nth-child(4) {
+  animation-delay: 21s;
+}
+.slide:nth-child(5) {
+  animation-delay: 28s;
+}
+.slide:nth-child(6) {
+  animation-delay: 35s;
+}
+
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  5% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgb(82 82 82 / 60%) 0%,
+    rgb(71 71 71 / 40%) 50%,
+    rgb(0 0 0 / 90%) 100% 100%
+  );
+  z-index: 1;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 87.5rem;
+  margin: 0 auto 0;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-badge {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(0.625rem);
+  border: 0.0625rem solid var(--glass-border);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 3.125rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1.875rem;
+}
+
+.hero-badge svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--primary-orange);
+}
+
+.hero-headline {
+  font-family: "Athenor", serif;
+  font-size: clamp(
+    3.5rem,
+    6rem,
+    8rem
+  ); /* Significantly increased for a bolder impact */
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.3);
+}
+
+.hero-headline span.italic {
+  font-family: "Athenor", serif;
+  font-style: italic;
+  color: var(--primary-orange);
+}
+
+.hero-subtext {
+  font-family: "Monday", serif;
+  max-width: 43.75rem;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  color: var(--text-white);
+  opacity: 0.9;
+  letter-spacing: 3px;
+}
+
+/* Animated Path */
+.flight-path-container {
+  position: absolute;
+  top: 6rem;
+  right: 12%;
+  width: 35rem;
+  height: 25rem;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 1;
+}
+
+.flight-path {
+  fill: none;
+  stroke: var(--primary-orange);
+  stroke-width: 1.5px;
+  stroke-dasharray: 8 8;
+  opacity: 0.4;
+}
+
+.plane-icon {
+  fill: var(--primary-orange);
+}
+
+/* Bottom Cutout */
+.bottom-shape {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.bottom-shape img {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+}
+
+/* Unified Destinations Selection */
+.destinations-container {
+  position: absolute;
+  bottom: 3.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 90rem;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+}
+
+.destinations-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.destination-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.category-title {
+  font-family: "Athenor", serif;
+  font-size: 1.8rem;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.category-grid {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.vertical-separator {
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    var(--primary-orange),
+    rgba(255, 255, 255, 0)
+  );
+  height: 15rem;
+  margin-top: 1rem;
+}
+
+/* Selected State for Cards */
+.peek-card.selected {
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 25px var(--primary-orange);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 64rem) {
+  .destinations-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .vertical-separator {
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      var(--primary-orange),
+      rgba(255, 255, 255, 0)
+    );
+    margin: 1rem 0;
+  }
+}
+
+.peek-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.peek-card {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0.3125rem solid #fff;
+  box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.3);
+  transition: var(--transition-main);
+  cursor: pointer;
+  position: relative; /* Context for absolute positioning */
+  background: #111;
+  display: flex; /* Flex to center content if needed, though dest-name will be absolute */
+  align-items: center;
+  justify-content: center;
+}
+
+.peek-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-main);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Semi-transparent overlay to ensure text readability */
+.peek-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Light dark overlay by default */
+  z-index: 1;
+  transition: var(--transition-main);
+}
+
+.peek-card:hover {
+  transform: translateY(-0.75rem) scale(1.05);
+  border-color: var(--primary-orange);
+  box-shadow: 0 0.9375rem 2.1875rem rgba(255, 125, 0, 0.4);
+}
+
+.peek-card:hover::after {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Darker overlay on hover for better text contrast if needed */
+}
+
+.peek-card:hover img {
+  transform: scale(1.1);
+}
+
+.dest-name {
+  position: relative;
+  z-index: 2; /* Sits on top of overlay */
+  font-family:
+    "Athenor", serif; /* Matching the main headline font as requested implicitly or for consistency */
+  font-size: 1.5rem; /* Increased visibility */
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Strong shadow for visibility */
+  pointer-events: none; /* Let clicks pass through to the card */
+}
+
+/* Selected State - Subtle Glow & Border */
+.peek-card.selected {
+  border-color: #fff;
+  box-shadow:
+    0 0 0 4px var(--primary-orange),
+    0 0 20px rgba(255, 125, 0, 0.6);
+  transform: translateY(-0.5rem) scale(1.05);
+}
+
+/* Hover State - Simple Lift */
+.peek-card:hover {
+  transform: translateY(-0.5rem) scale(1.05);
+  border-color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.peek-card:hover::after,
+.peek-card.selected::after {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Remove old badge pseudo-elements */
+.peek-card:hover::before,
+.peek-card.selected::before {
+  content: none;
+}
+
+/* Animation reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+/* Section 2 Title */
+.next-section-title {
+  text-align: center;
+  margin-top: 18.75rem;
+  padding-bottom: 3.125rem;
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 64rem) {
+  .nav-left,
+  .nav-right {
+    display: none;
+  }
+  .hero-headline {
+    font-size: 3rem;
+  }
+  .destinations-grid {
+    gap: 1.25rem;
+  }
+  .peek-card {
+    width: 9.375rem;
+    height: 9.375rem;
+  }
+  .destinations-container {
+    bottom: -25rem;
+  }
+  .hero {
+    min-height: 43.75rem;
+  }
+}
+
+/* =========================================
+   NEW PREMIUM SELECTOR STYLES
+   ========================================= */
+
+.premium-selector-container {
+  position: relative;
+  /* margin-top: 2rem; */
+  width: 100%;
+  max-width: 80rem;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1.5rem;
+}
+
+/* Header & Tabs */
+.selector-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.selector-title {
+  font-family: "Athenor", serif;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.selector-tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 0.4rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  gap: 0.5rem;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  padding: 0.8rem 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.tab-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn.active {
+  background: var(--primary-orange);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 125, 0, 0.4);
+}
+
+/* Content Area */
+.selector-content {
+  position: relative;
+  min-height: 250px; /* Reserve space for cards */
+}
+
+.dest-grid {
+  display: none; /* Hidden by default */
+  flex-direction: row; /* Ensure horizontal layout */
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.dest-grid.active {
+  display: flex;
+  opacity: 1;
+  /* animation: fadeInGrid 0.5s ease forwards; REMOVED to let GSAP handle it */
+}
+
+@keyframes fadeInGrid {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* EXPANDING CARDS - The Star Logic */
+.dest-card {
+  position: relative;
+  height: 250px;
+  flex: 1;
+  min-width: 150px;
+  border-radius: 40px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  border: 10px solid #ffffff;
+}
+
+/* Background Image Container */
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease; /* Parallax-like zoom */
+  filter: brightness(0.7) grayscale(20%); /* Dim by default */
+}
+
+/* Card Content Overlay */
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: #fff;
+  transform: translateY(0);
+  transition: all 0.4s ease;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card-content h3 {
+  font-family: "Athenor", serif;
+  font-size: 1.8rem;
+  margin: 0;
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Selected State - "Locked In" Look */
+.dest-card.selected {
+  flex: 2.5; /* Grow biggest */
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 30px rgba(255, 125, 0, 0.5);
+}
+
+.dest-card.selected .card-bg img {
+  filter: brightness(1.1) grayscale(0%);
+  transform: scale(1.15);
+}
+
+.dest-card.selected .card-content h3 {
+  color: var(--primary-orange);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .premium-selector-container {
+    bottom: 1rem;
+    padding: 0 1rem;
+  }
+
+  .selector-title {
+    font-size: 1.5rem;
+  }
+
+  .dest-grid {
+    flex-direction: column; /* Stack on mobile */
+    width: 100%;
+  }
+
+  /* On mobile, use height expansion instead of width/flex */
+  .dest-card {
+    height: 100px; /* Short collapsed state */
+    width: 100%;
+    flex: none; /* Disable flex growing */
+    margin-bottom: 0.5rem;
+  }
+
+  .dest-card:hover,
+  .dest-card.selected {
+    height: 250px; /* Expand vertically */
+    flex: none;
+  }
+
+  .card-content h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/* The Mandatory Modal Structure */
+.destination-modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: #e0e0e0; /* Solid, light background to focus on the cards */
+  z-index: 1;
+}
+
+/* Container for the entire search section */
+.search-container {
+  position: relative;
+  width: 90%;
+  max-width: 480px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The white search bar panel turned into a clean vertical card */
+.search-panel.vertical-layout {
+  width: 100%;
+  background: #e0e0e0;
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow:
+    15px 15px 30px #bebebe,
+    -15px -15px 30px #ffffff;
+  z-index: 100;
+}
+
+/* Title above the search panel */
+.search-panel.vertical-layout .selector-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.7rem;
+  color: #1a1a1a;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+.search-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #000000;
+  transition: all 0.3s ease;
+}
+
+.search-item:hover {
+  background: #fafafa;
+  border-color: #e0e0e0;
+}
+
+.search-item:hover {
+  background: #f8f8f8;
+}
+
+.search-label {
+  font-family: "Athenor", serif;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.search-input-mock {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #666;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+}
+
+.search-input-mock i {
+  color: #999;
+  font-size: 1rem;
+}
+
+.search-input-mock i.fa-chevron-down {
+  margin-left: auto;
+  font-size: 0.8rem;
+}
+
+/* Divider */
+.search-divider {
+  width: 1px;
+  height: 3rem;
+  background: #eee;
+  margin: 0 2rem;
+}
+
+/* Search Button */
+.search-btn-wrapper {
+  margin-left: 2rem;
+}
+
+.search-btn {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  background: var(--primary-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-container {
+    bottom: 10%;
+    width: 95%;
+  }
+
+  .selector-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-panel {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    border-radius: 25px;
+    margin: 0 1rem;
+    width: auto;
+  }
+
+  .search-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+  }
+
+  .search-item {
+    width: 100%;
+  }
+
+  .search-btn-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+}
+
+/* CUSTOM DROPDOWN STYLES */
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #666;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.custom-select-trigger i {
+  color: #999;
+  font-size: 1rem;
+}
+
+.custom-select-trigger .arrow {
+  margin-left: auto;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.custom-select-wrapper.open .arrow {
+  transform: rotate(180deg);
+}
+
+.custom-options {
+  position: absolute;
+  top: 150%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+  padding: 0.5rem 0;
+  min-width: 200px; /* Ensure wide enough */
+}
+
+.custom-select-wrapper.open .custom-options {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.custom-option {
+  padding: 0.8rem 1.5rem;
+  font-family: "Outfit", sans-serif;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.custom-option:hover {
+  background: #f0f0f0;
+  color: var(--primary-orange);
+}
+
+.custom-option.selected {
+  background: #fff5eb;
+  color: var(--primary-orange);
+  font-weight: 600;
+}
+
+/* =========================================
+   WISHLIST & RESORTS STYLES
+   ========================================= */
+
+/* Flash Overlay */
+.flash-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Header Wishlist (Fixed & Thumbnail Style) */
+.wishlist-container {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 5000;
+  cursor: pointer;
+  display: none; /* Initially Hidden */
+  background: white;
+  border: 3px solid white;
+}
+
+.wishlist-thumb-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px; /* Inner radius */
+  overflow: hidden;
+  background: #eee;
+}
+
+.wishlist-thumb-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.wishlist-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--primary-orange);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Outfit", sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Timeline Navigation Refined */
+.timeline-nav-container {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  margin-bottom: 5rem;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 28px; /* Align with dots */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #e0e0e0; /* GREY */
+  z-index: 1;
+}
+
+.timeline-items {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 2;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: #ccc;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #fff;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+  position: relative;
+}
+
+/* Active State Design matching reference */
+.timeline-item.active .timeline-dot {
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border: 6px solid var(--primary-orange);
+  box-shadow: none;
+  transform: translateY(-4px); /* Center on line */
+}
+
+.timeline-label {
+  position: absolute;
+  top: -25px; /* Above the line */
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ccc; /* GREY */
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.timeline-item.active .timeline-label {
+  color: var(--primary-orange); /* ORANGE */
+}
+
+/* New Grid Layout */
+.all-dest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+/* Card Redesign Matching Image */
+.all-dest-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Soft shadow */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  padding: 12px; /* The white frame padding */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border */
+}
+
+.all-dest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 16px; /* Inner radius matching frame */
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.all-dest-card:hover .card-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.dest-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--primary-orange);
+  color: #fff;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border-radius: 100px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Text Container below image */
+.card-inner h3 {
+  font-family: "Athenor", serif;
+  font-size: 2rem;
+  color: #2c4a34;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  font-weight: 400;
+}
+
+/* Staggered Layout: Lift middle card on larger screens */
+@media (min-width: 901px) {
+  .all-dest-card:nth-child(3n + 2) {
+    transform: translateY(-30px);
+  }
+  .all-dest-card:nth-child(3n + 2):hover {
+    transform: translateY(-38px);
+  }
+}
+
+@media (max-width: 900px) {
+  .all-dest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .all-dest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-nav-container {
+    overflow-x: auto;
+    padding: 2rem 1rem;
+  }
+
+  .timeline-items {
+    min-width: 400px; /* Ensure scrollability */
+  }
+}
+
+/* =========================================
+   RESORTS SPLIT LAYOUT (STICKY)
+   ========================================= */
+
+.resorts-section {
+  width: 100%;
+  max-width: 100%;
+  margin: 10rem auto 0; /* Added gap */
+  padding: 0;
+  display: block;
+}
+
+.resorts-split-container {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* LEFT: STICKY VISUAL (50%) */
+.dest-visual-left {
+  width: 50%;
+  position: sticky;
+  top: 5vh; /* Center vertically */
+  height: 90vh; /* "Little small" */
+  overflow: hidden;
+  z-index: 10;
+  border-radius: 0 50px 50px 0; /* Right corners rounded */
+}
+
+.sticky-wrapper,
+.dest-hero-img-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.dest-hero-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dest-hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  width: 80%;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* "JOURNEYS YOU CAN'T MISS" */
+.dest-visual-left .sub-tag {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* "Beyond Borders" - Big White Italic */
+.branding-title {
+  font-family: "Athenor", serif;
+  font-size: 5.5rem;
+  line-height: 1;
+  color: #fff;
+  font-style: italic;
+  font-weight: 400;
+  margin: 0;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.view-tours-btn {
+  align-self: flex-start;
+  padding: 1.2rem 2.5rem;
+  background: #fff;
+  color: #1a1a1a;
+  border-radius: 50px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+.view-tours-btn:hover {
+  background: var(--primary-orange);
+  color: #fff;
+}
+
+/* RIGHT: SCROLLABLE LIST (50%) */
+.resorts-scroll-right {
+  width: 50%;
+  padding: 6rem 5rem;
+  background: #fff;
+  min-height: 100vh;
+}
+
+.resorts-list-header {
+  margin-bottom: 4rem;
+}
+
+/* "Destination" - Big Green Italic Title */
+.resorts-list-title {
+  font-family: "Athenor", serif;
+  font-size: 6rem;
+  color: #1a4d2e; /* Deep Green */
+  margin: 0;
+  font-style: italic;
+  line-height: 1;
+}
+
+.resorts-subtitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: #4a6756;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-top: 1px solid #ebebeb;
+  padding-top: 2rem;
+  display: block;
+}
+
+.resorts-list-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* PREMIUM HORIZONTAL CARD */
+.resort-card-horizontal {
+  display: flex;
+  background: #fcfcfc;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+  min-height: 320px;
+  height: auto;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.resort-card-horizontal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.resort-card-img {
+  width: 45%;
+  position: relative;
+  min-height: 100%; /* Ensure full height */
+}
+
+.resort-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.resort-card-info {
+  width: 55%;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align top to prevent center squeezing */
+  position: relative;
+}
+
+.resort-region-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: var(--primary-orange);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  z-index: 5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.resort-title {
+  font-family: "Athenor", serif;
+  font-size: 2rem; /* Slightly smaller to fit */
+  color: #1a4d2e;
+  line-height: 1.1;
+  margin: 0 0 1rem 0;
+}
+
+.resort-desc {
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.resort-pricing {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem; /* Space for button */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price-val {
+  color: #2c4a34;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .branding-title {
+    font-size: 4rem;
+  }
+  .resorts-list-title {
+    font-size: 4.5rem;
+  }
+  .resort-card-horizontal {
+    height: auto;
+    flex-direction: column;
+  }
+  .resort-card-img,
+  .resort-card-info {
+    width: 100%;
+  }
+  .resort-card-img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 900px) {
+  .resorts-split-container {
+    flex-direction: column;
+  }
+  .dest-visual-left {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    border-radius: 0;
+  }
+  .resorts-scroll-right {
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* =========================================
+   INLINE GALLERY SECTION
+   ========================================= */
+
+.resort-gallery-section {
+  padding: 8rem 4rem 6rem; /* Increased top padding for the offset */
+  background: #fff;
+  display: block;
+  border-top: 1px solid #f0f0f0;
+}
+
+.gallery-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-section-title {
+  font-family: "Athenor", serif;
+  font-size: 4rem;
+  color: #1a4d2e;
+  text-align: center;
+  margin-bottom: 4rem;
+  /* font-style: italic; */
+}
+
+/* RESTORED BUTTON STYLES */
+.view-gallery-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: #fff;
+  border: 1px solid #1a4d2e;
+  border-radius: 50px;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  color: #1a4d2e;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.view-gallery-btn:hover {
+  background: #1a4d2e;
+  color: #fff;
+}
+
+.gallery-inline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 480px 320px;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  grid-template-areas:
+    "img0 img1 img1 img2"
+    "img3 img4 img5 img6";
+  align-items: start;
+}
+
+.gallery-item {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #f0f0f0;
+}
+
+.item-0,
+.item-2 {
+  height: 380px;
+  align-self: start;
+}
+.item-0 {
+  grid-area: img0;
+}
+.item-2 {
+  grid-area: img2;
+}
+
+.item-1 {
+  height: 480px;
+  grid-area: img1;
+  margin-top: -40px;
+  z-index: 3;
+}
+
+.item-3,
+.item-6 {
+  height: 400px;
+  margin-top: -100px;
+  z-index: 2;
+}
+.item-3 {
+  grid-area: img3;
+}
+.item-6 {
+  grid-area: img6;
+}
+
+.item-4,
+.item-5 {
+  height: 380px;
+  margin-top: -40px;
+  grid-area: img4;
+}
+.item-5 {
+  grid-area: img5;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block; /* Remove inline spacing */
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1100px) {
+  .gallery-inline-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 250px);
+    grid-template-areas:
+      "img0 img0"
+      "img1 img2"
+      "img3 img4"
+      "img5 img6";
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-inline-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: none; /* Stack 'em */
+  }
+  .gallery-item {
+    grid-area: auto;
+    height: 300px;
+    margin-bottom: 1rem;
+  }
+}
+
+/* =========================================
+   MAGAZINE-STYLE BOOKING FLOW STYLES
+   ========================================= */
+
+.booking-flow-section {
+  padding: 8rem 0;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.booking-magazine-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+/* Horizontal Progress Tracker */
+.booking-magazine-header {
+  margin-bottom: 6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.magazine-progress-steps {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mag-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  opacity: 0.2;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mag-step.active {
+  opacity: 1;
+}
+
+.mag-step.completed {
+  opacity: 0.5;
+}
+
+.mag-step-num {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a1a;
+}
+
+.mag-step-lbl {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.mag-step.active .mag-step-lbl {
+  color: var(--primary-orange);
+}
+
+.mag-step-line {
+  width: 80px;
+  height: 1.5px;
+  background: #eee;
+  margin-bottom: 1rem;
+}
+
+/* Immersive Content Area */
+.booking-immersive-content {
+  position: relative;
+  width: 100%;
+}
+
+.step-content {
+  animation: magFadeUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes magFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mag-step-title {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.mag-step-title h2 {
+  font-family: "Outfit", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.mag-step-title p {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Step 1: Magazine Destination Cards */
+.mag-dest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.mag-dest-card {
+  position: relative;
+  aspect-ratio: 9/14;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 4px; /* Sharper, magazine feel */
+}
+
+.mag-dest-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mag-dest-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 10%, transparent 60%);
+  transition: opacity 0.6s ease;
+}
+
+.mag-dest-info {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2rem;
+  right: 2rem;
+  color: #fff;
+  z-index: 2;
+}
+
+.mag-dest-info .dest-cat {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.mag-dest-info h4 {
+  font-family: "Outfit", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.mag-dest-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Step 2: Cinematic Resort Explorer */
+.mag-explorer {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  min-height: 600px;
+}
+
+.mag-explorer-preview {
+  position: sticky;
+  top: 4rem;
+  height: 600px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mag-explorer-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mag-resort-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 4rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: #fff;
+}
+
+.mag-resort-details h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.mag-explorer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mag-resort-item {
+  padding: 2.5rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  opacity: 0.4;
+}
+
+.mag-resort-item.selected,
+.mag-resort-item:hover {
+  opacity: 1;
+  border-bottom-color: var(--primary-orange);
+}
+
+.mag-resort-item h4 {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.mag-resort-item .price {
+  color: var(--primary-orange);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Step 3: Ticket Summary & Form */
+.mag-summary-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.mag-journey-ticket {
+  background: #fcfcfc;
+  padding: 4rem;
+  border-radius: 20px;
+  border: 1px dashed #ddd;
+  position: relative;
+}
+
+.mag-journey-ticket::before,
+.mag-journey-ticket::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.mag-journey-ticket::before {
+  left: -20px;
+}
+.mag-journey-ticket::after {
+  right: -20px;
+}
+
+.ticket-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ticket-detail {
+  margin-bottom: 2rem;
+}
+
+.ticket-detail label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.ticket-detail span {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+/* Form Styling - Refined */
+.mag-enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mag-input-group {
+  position: relative;
+}
+
+.mag-input-group label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.mag-input-group input,
+.mag-input-group textarea {
+  width: 100%;
+  padding: 1.2rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #eee;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+}
+
+.mag-input-group input:focus {
+  outline: none;
+  border-bottom-color: var(--primary-orange);
+}
+
+.mag-submit-btn {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.mag-submit-btn:hover {
+  background: var(--primary-orange);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 125, 0, 0.2);
+}
+
+/* Nav Buttons */
+.mag-nav-bar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.mag-btn-back {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #1a1a1a;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .mag-dest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mag-explorer,
+  .mag-summary-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .mag-explorer-preview {
+    height: 400px;
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .booking-magazine-container {
+    padding: 0 2rem;
+  }
+  .mag-dest-grid {
+    grid-template-columns: 1fr;
+  }
+  .mag-step-title h2 {
+    font-size: 2.5rem;
+  }
+}
